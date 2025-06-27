@@ -1,9 +1,10 @@
 # Velocity field, wall shear stress (WSS) and pressure drop in a rectangular microchannel
 
-This is a Jupyter notebook to calculate the velocity profile, wall shear stress and pressure drop in a rectangular microchannel using the analytical solution by [[1]](#1). 
-The values used in the example are based on the experiments presented in [[2]](#2).
+This is a Jupyter notebook to calculate the velocity profile, wall shear stress (WSS) and pressure drop in a rectangular microchannel using the analytical solution by [[1]](#1). 
+The values used in the example are based on the experiments presented in [[2]](#2) and an illustration of the micrchannel is shown in section [2 - WSS](#2-WSS).
 
-**Flow field in a rectangular channel**
+
+**1 - Flow field in a rectangular channel**<a id='1-U'></a>
 
 Given a rectangular channel with a cross section $2W \times 2H = 1 \ {\rm mm} \times 0.1 \ {\rm mm}$, let us note the aspect ratio $\alpha = 2W / 2H$.
 The velocity field can be written ([[1]](#1),[[3]](#3),[[4]](#4)): 
@@ -17,7 +18,7 @@ $$ c_1 = - 3 \frac{u_m}{W^2}  \frac{1}{1 - \frac{192}{\pi^5} \frac{W}{H}\display
 where $u_m$ is the average fluid velocity $u_m = Q/\left(2W \times 2H \right)$.
 
 
-**Wall shear stress**
+**2 - WSS**<a id='2-WSS'></a>
 
 At the bottom wall of the channel, the wall shear stress (WSS) is written for y=-H:
 
@@ -25,8 +26,14 @@ $$
 \mu \frac{\partial u(x,y)}{\partial y} = - \mu \frac{16 c_1 W^2}{\pi^3} \displaystyle\sum_{n=0}^{\infty} \frac{\left(-1\right)^n}{(2n + 1)^3} \left( \frac{\left(2n+1\right)}{2W} \frac{{\rm sinh} \left(\frac{\left(2n+1\right) \pi H}{2W} \right)}{{\rm cosh} \left(\frac{\left(2n+1\right) \pi H}{2W}  \right)}\right) cos \left(\frac{\left(2n + 1 \right) \pi x }{2W} \right) \ .
 $$
 
+The WSS on the bottom wall of a microchannel of aspect ratio 10, for a flow rate $Q = 13 \mu L / min$ is illustrated below.
+<p align="center">
+  <img src="./WSSchannel_3d-view.png" width="800">
+</p>
 
-**Pressure drop and pressure distribution**
+Similar derivation can be done for lateral walls but the highest shear is in the most confined direction and this is the wall of interest with respect to the experimental study [[2]](#2).
+
+**3 - Pressure drop and pressure distribution**<a id='3-p'></a>
 
 The absolute pressure in the channel is of interest to exmine the pressure exerted on the cells in the microfluidic organ-on-chip platform used in [[2]](#2). 
 The pressure at the outlet of the channel, assuming laminar flow and negligible fitting losses, can be written as the sum of atmospheric pressure, the hydrostatic pressure from the outlet tubing and the frition losses in the outlet tubing:
